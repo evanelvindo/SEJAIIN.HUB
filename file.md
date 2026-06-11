@@ -22,9 +22,9 @@ Menguji ketahanan sistem (*robustness*) ketika menerima *input* yang salah atau 
 
 | ID Test Case | Kategori | Skenario Pengujian | Test Data | Expected Result | Actual Result | Status | Bukti (Screenshot) |
 |---|---|---|---|---|---|---|---|
-| TC-N-01 | NEGATIVE | Registrasi Mitra dengan NIK kurang dari 16 digit | Nama: Joko NIK: 12345 (Hanya 5 digit) WA: 0812 | Sistem menolak *input*, form memunculkan pesan error "NIK harus 16 digit angka". Data tidak masuk ke database. | [Diisi setelah testing] | [PASS/FAIL] | |
-| TC-N-02 | NEGATIVE | Admin menolak bukti transfer pelanggan | Klik tombol [❌ Tolak] pada Topik #FINANCE | Sistem *tidak* melakukan blast order. Pelanggan menerima pesan: "Mohon maaf, foto bukti pembayaran kurang jelas. Mari kirimkan ulang." | [Diisi setelah testing] | [PASS/FAIL] | |
-| TC-N-03 | NEGATIVE | Mitra terlambat mengklaim order | Mitra B menekan tombol [⚡ Ambil Order] setelah Mitra A | Sistem menolak klaim Mitra B dan memunculkan notifikasi: "Maaf, Order sudah diambil oleh mitra lain!". | [Diisi setelah testing] | [PASS/FAIL] | [Upload Gambar Disini] |
+| TC-N-01 | NEGATIVE | Registrasi Mitra dengan NIK kurang dari 16 digit | Nama: Joko NIK: 12345 (Hanya 5 digit) WA: 0812 | Sistem menolak *input*, form memunculkan pesan error "NIK harus 16 digit angka". Data tidak masuk ke database. |  | [PASS/FAIL] | |
+| TC-N-02 | NEGATIVE | Admin menolak bukti transfer pelanggan | Klik tombol [❌ Tolak] pada Topik #FINANCE | Sistem *tidak* melakukan blast order. Pelanggan menerima pesan: "Mohon maaf, foto bukti pembayaran kurang jelas. Mari kirimkan ulang." |  | [PASS/FAIL] | |
+| TC-N-03 | NEGATIVE | Mitra terlambat mengklaim order | Mitra B menekan tombol [⚡ Ambil Order] setelah Mitra A | Sistem menolak klaim Mitra B dan memunculkan notifikasi: "Maaf, Order sudah diambil oleh mitra lain!". |  | [PASS/FAIL] |  |
 
 ---
 
@@ -34,6 +34,6 @@ Menguji stabilitas sistem pada kondisi batas (*boundary*), volume berlebih, atau
 
 | ID Test Case | Kategori | Skenario Pengujian | Test Data | Expected Result | Actual Result | Status | Bukti (Screenshot) |
 |---|---|---|---|---|---|---|---|
-| TC-E-01 | EDGE | *Race Condition* (Klaim order bersamaan) | Mitra A dan Mitra B menekan tombol [⚡ Ambil Order] di milidetik yang persis sama. | Sistem hanya memproses satu pemenang berdasarkan urutan masuk database (Locking/Timestamp). Tidak ada order yang ter-assign ganda (*Double assign*). | [Diisi setelah testing] | [PASS/FAIL] | [Upload Gambar Disini] |
+| TC-E-01 | EDGE | *Race Condition* (Klaim order bersamaan) | Mitra A dan Mitra B menekan tombol [⚡ Ambil Order] di milidetik yang persis sama. | Sistem hanya memproses satu pemenang berdasarkan urutan masuk database (Locking/Timestamp). Tidak ada order yang ter-assign ganda (*Double assign*). |  | [PASS/FAIL] |  |
 | TC-E-02 | EDGE | *Input Injection* pada Lokasi Pelanggan | Lokasi diisi dengan script: `<script>alert('hack')</script>` atau `' OR 1=1;--` | Sistem melakukan sanitasi teks. Bot dan Database tetap aman, teks disimpan sebagai *string* biasa, sistem tidak teretas (*SQL/XSS Injection gagal*). |  | FAIL |  |
 | TC-E-03 | EDGE | Pengiriman file bukan gambar saat upload bukti bayar | Mengirimkan file berekstensi .pdf, .exe, atau audio .mp3 ke bot. | Bot menolak file dan menampilkan pesan peringatan: "Harap kirimkan bukti berupa Foto/Gambar (JPG/PNG), bukan dokumen/file lain." |  | FAIL |  |
