@@ -6,10 +6,10 @@
 
 Menguji apakah sistem memberikan *output* yang benar ketika menerima *input* dan alur yang valid.
 
-| ID Test Case | Kategori | Skenario Pengujian | Test Data | Expected Result | Actual Result | Status |
+| ID Test Case | Kategori | Skenario Pengujian | Test Data | Expected Result | Actual Result | Status | Bukti (Screenshot) |
 |---|---|---|---|---|---|---|---|
-| TC-P-01 | POSITIVE | Pendaftaran akun Mitra baru melalui form Web | Nama: Budi Santoso NIK: 1500293847561029 WA: 0812345678 Upload: ktp_budi.jpg | Data tersimpan di database dengan status MENUNGGU. Notifikasi masuk ke Telegram Admin Topik #RECRUITMENT. |  | PASS | 
-| TC-P-02 | POSITIVE | Pelanggan memesan jasa dan kirim lokasi | Menu: HUB 2 (Cuci Sepatu) Lokasi: Kost Orange Kamar 3 | Bot menampilkan rincian pesanan, harga (Rp25.000), dan meminta *upload* bukti transfer. |  | PASS |  
+| TC-P-01 | POSITIVE | Pendaftaran akun Mitra baru melalui form Web | Nama: Budi Santoso NIK: 1500293847561029 WA: 0812345678 Upload: ktp_budi.jpg | Data tersimpan di database dengan status MENUNGGU. Notifikasi masuk ke Telegram Admin Topik #RECRUITMENT. |  | PASS | |
+| TC-P-02 | POSITIVE | Pelanggan memesan jasa dan kirim lokasi | Menu: HUB 2 (Cuci Sepatu) Lokasi: Kost Orange Kamar 3 | Bot menampilkan rincian pesanan, harga (Rp25.000), dan meminta *upload* bukti transfer. |  | PASS |  |
 | TC-P-03 | POSITIVE | Admin memvalidasi bukti pembayaran | Klik tombol [✅ Sah (ACC)] pada Topik #FINANCE | Sistem otomatis mengirim pesan *BlastOrder* ke seluruh telegram mitra yang berstatus aktif. | [Diisi setelah testing] | PASS | [Upload Gambar Disini] |
 | TC-P-04 | POSITIVE | Mitra mengklaim order (Tercepat) | Mitra A menekan tombol [⚡ Ambil Order] pertama kali | Mitra A menerima notifikasi "Order Berhasil Diambil" beserta detail alamat pelanggan. | [Diisi setelah testing] | [PASS/FAIL] | [Upload Gambar Disini] |
 | TC-P-05 | POSITIVE | Admin QC menyetujui foto bukti kerja | Klik tombol [✅ Setujui] pada foto kerja di Topik #SERVICES | Pelanggan menerima pesan "Pekerjaan Selesai" dan tombol konfirmasi *Rating*. | [Diisi setelah testing] | [PASS/FAIL] | [Upload Gambar Disini] |
